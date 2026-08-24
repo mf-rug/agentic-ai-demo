@@ -46,9 +46,7 @@ the project ends.** Do not try to fix it. Just notice how you feel.
 gemini
 ```
 
-Then paste in the prompt below. (Or fetch it as a file first with
-`curl -sO https://raw.githubusercontent.com/mf-rug/agentic-ai-demo/main/PROMPT.txt`
-and then `cat PROMPT.txt`.)
+Then paste in this prompt:
 
 ```text
 I have inherited this folder from a student who just left the lab.
@@ -66,25 +64,35 @@ parts are floppy?
 
 Also get scripts/seq_stats.py working, or tell me why it is not worth saving.
 
-Deliverable: a single self-contained report.html in this folder that I can
-open in a browser and forward to my PI. It should say what the protein is,
-how you know, anything unexpected about this particular construct, and a
-per-residue confidence plot.
-
 HOW I WANT YOU TO WORK
 
-- Before every single command you run, print one short line in plain English
-  saying what you are about to do and why. Write it for someone who has never
-  used a terminal before: one sentence, no jargon.
+- After every command, tell me in one plain-English sentence what you just
+  learned from it and what you are going to do next because of it. Write it
+  for someone who has never used a terminal before.
 - When something fails, say what you think went wrong before you try the next
   thing.
+- Do not delete anything you create along the way. I want to be able to look
+  at your working afterwards.
 - Use the python3 standard library and curl only. Do not pip install anything.
 - Do not ask me questions. Work it out and show me what you find.
 ```
 
 Now **read every step before you approve it**, and approve them one at a time.
 
-## 5. Look at what it made
+## 5. Ask for something you can send to your PI
+
+When it has finished, paste this in:
+
+```text
+Now turn that into a single self-contained report.html in this folder that I
+can forward to my PI: what the protein is, how you know, anything unexpected
+about this construct, and a per-residue confidence plot.
+
+Self-contained matters - my PI will open it on a train with no wifi. It has to
+render correctly with no internet connection at all.
+```
+
+Then look at what it made:
 
 ```bash
 python3 -m http.server 8080
@@ -134,10 +142,27 @@ it closes that loop itself. It is not more intelligent. It is *connected*.
 That is the whole difference, and it is why the useful question is no longer
 "can I write this?" but **"can I tell whether this is right?"**
 
-## Which is exactly where it gets dangerous
+---
+
+## Now check its work
 
 The agent is fluent, fast, and completely confident — including when it is
-wrong. In the report it just wrote:
+wrong. Start here:
+
+**Did it actually do what it said?** You asked for a report that works with no
+internet. Check:
+
+```bash
+grep -o 'src="http[^"]*"' report.html
+```
+
+Every line that comes back is a file your PI's browser has to download from
+somewhere else. If anything appears, the report is *not* self-contained — no
+matter what the agent told you. This is not a hypothetical: when we tested this
+exercise, one agent loaded its plotting library from the internet and then
+reported that it had produced a self-contained file.
+
+Then keep going:
 
 - Every database claim should come with an accession number. Follow one. Does
   it land on the entry the agent says it does?
@@ -147,13 +172,12 @@ wrong. In the report it just wrote:
 Checking that is now your job, and it is the part of your degree that does not
 get automated.
 
----
-
 ## If you finish early
 
 Paste these in, one at a time:
 
-- `Add an interactive 3D view of the structure to the report, coloured by confidence, with the unexpected residue highlighted. Use 3Dmol.js from a CDN.`
+- `That report is not self-contained. Fix it, and this time verify it yourself before telling me it is done.`
+- `Add an interactive 3D view of the structure, coloured by confidence, with the unexpected residue highlighted.`
 - `Rewrite the report for my PI, who is a biologist and does not code.`
 - `What would be different if the handover notes had been right?`
 - `Design primers to make the construct you are recommending.`
