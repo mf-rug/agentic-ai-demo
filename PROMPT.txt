@@ -1,0 +1,29 @@
+I have inherited this folder from a student who just left the lab.
+
+Read notes/handover.txt and work out what is actually in
+data/construct_MF07.fasta.
+
+Do not take those notes at face value. Verify every claim they make against
+the real databases - UniProt and AlphaFold - using their public web APIs.
+If the notes are wrong, tell me so and show me the evidence.
+
+Then answer the question the PI actually cares about: where can we safely
+truncate this construct? Which parts of it are genuinely folded, and which
+parts are floppy?
+
+Also get scripts/seq_stats.py working, or tell me why it is not worth saving.
+
+Deliverable: a single self-contained report.html in this folder that I can
+open in a browser and forward to my PI. It should say what the protein is,
+how you know, anything unexpected about this particular construct, and a
+per-residue confidence plot.
+
+HOW I WANT YOU TO WORK
+
+- Before every single command you run, print one short line in plain English
+  saying what you are about to do and why. Write it for someone who has never
+  used a terminal before: one sentence, no jargon.
+- When something fails, say what you think went wrong before you try the next
+  thing.
+- Use the python3 standard library and curl only. Do not pip install anything.
+- Do not ask me questions. Work it out and show me what you find.
