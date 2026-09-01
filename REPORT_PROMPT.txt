@@ -1,6 +1,0 @@
-Now turn that into a single self-contained report.html in this folder that I
-can forward to my PI: what the protein is, how you know, anything unexpected
-about this construct, and a per-residue confidence plot.
-
-Self-contained matters - my PI will open it on a train with no wifi. It has to
-render correctly with no internet connection at all.
