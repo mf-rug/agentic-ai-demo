@@ -1,4 +1,4 @@
-# Prompts
+`# Prompts
 
 For the MF-07 exercise. Clone the folder first:
 
@@ -46,4 +46,6 @@ about this construct, and a per-residue confidence plot.
 
 Self-contained matters - my PI will open it on a train with no wifi. It has to
 render correctly with no internet connection at all.
+
+Work instructions from before apply.
 ```
