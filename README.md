@@ -48,4 +48,6 @@ Self-contained matters - my PI will open it on a train with no wifi. It has to
 render correctly with no internet connection at all.
 
 Work instructions from before apply.
+
+When done, trigger report download to my machine via `cloudshell download` from your side.
 ```
